@@ -11,19 +11,20 @@ let novaConsulta = {
     Paciente: "",
     Médico: "",
     Data: "",
-    Hora:"",
-    
+    Hora: "",
+
 
 };
 let opcao = 0;
-let cadastrandoLivro = false;
-let removendoLivro = false;
+let cadastrandoConsulta = false;
+let removendoConsulta = false;
 
 console.log("Bem-vindos, escolha uma das opções abaixo:");
-console.log("1: Digitar as informações do livro:");
-console.log("2: Caso queira remover um livro");
-console.log("3: Para ver os livros que inseriu");
-console.log("4: Sair do programa");
+console.log("1: Digitar as informações da consulta:");
+console.log("2: Caso queira remover uma consulta");
+console.log("3: Atualizar consulta");
+console.log("4: Para ver as consultas que inseriu");
+console.log("5: Sair do programa");
 
 process.stdin.on("data", function (data) {
     let entrada_usuario = data.toString().trim();
@@ -33,67 +34,76 @@ process.stdin.on("data", function (data) {
 
         switch (opcao) {
             case 1:
-                console.log("Nome do livro:");
-                cadastrandoLivro = true;
+                console.log("Nome do paciente:");
+                cadastrandoConsulta = true;
                 break;
             case 2:
-                console.log("Digite o nome do livro a ser removido:");
-                removendoLivro = true;
+                console.log("Digite o nome do paciente a ser removido:");
+                removendoConsulta = true;
                 break;
             case 3:
-                if (biblioteca.length === 0) {
-                    console.log("Nenhum livro cadastrado.");
+                console.log("Atualize a consulta");
+
+            case 4:
+                if (consultas.length === 0) {
+                    console.log("Nenhum paciente cadastrado.");
                 } else {
-                    console.log("Livros cadastrados:");
-                    biblioteca.forEach((livro, index) => {
-                        console.log(`${index + 1}. Nome: ${livro.nome}, Autor: ${livro.autor}, Tamanho: ${livro.tamanho}, Gênero: ${livro.genero}`);
+                    console.log("Pacientes cadastrados:");
+                    consultas.forEach((consultas, index) => {
+                        console.log(`${index + 1}. Nome: ${consultas.nome}, Autor: ${consultas.autor}, Tamanho: ${consultas.tamanho}, Gênero: ${consultas.genero}`);
                     });
                 }
                 opcao = 0;
                 console.log("\nEscolha uma das opções abaixo:");
-                console.log("1: Digitar as informações do livro:");
-                console.log("2: Caso queira remover um livro");
-                console.log("3: Para ver os livros que inseriu");
-                console.log("4: Sair do programa");
+                console.log("1: Digitar as informações da consulta:");
+                console.log("2: Caso queira remover uma consulta");
+                console.log("3: Atualizar consulta");
+                console.log("4: Para ver as consultas que inseriu");
+                console.log("5: Sair do programa");
+ 
                 break;
-            case 4:
+            case 5:
                 console.log("Encerrando o programa...");
                 process.exit();
                 break;
             default:
                 console.log("Opção inválida. Tente novamente.");
                 console.log("\nEscolha uma das opções abaixo:");
-                console.log("1: Digitar as informações do livro:");
-                console.log("2: Caso queira remover um livro");
-                console.log("3: Para ver os livros que inseriu");
-                console.log("4: Sair do programa");
+                console.log("1: Digitar as informações da consulta:");
+                console.log("2: Caso queira remover uma consulta");
+                console.log("3: Atualizar consulta");
+                console.log("4: Para ver as consultas que inseriu");
+                console.log("5: Sair do programa");
+                
                 break;
         }
     } else {
         switch (opcao) {
             case 1:
-                if (cadastrandoLivro) {
-                    if (!livro.nome) {
-                        livro.nome = entrada_usuario;
-                        console.log("Nome do autor:");
-                    } else if (!livro.autor) {
-                        livro.autor = entrada_usuario;
-                        console.log("Tamanho do livro:");
-                    } else if (!livro.tamanho) {
-                        livro.tamanho = entrada_usuario;
-                        console.log("Gênero do livro:");
-                    } else if (!livro.genero) {
-                        livro.genero = entrada_usuario;
-                        biblioteca.push(livro);
-                        console.log("Livro cadastrado com sucesso!");
-                        livro = {};
+                if (cadastrandoConsulta) {
+                    if (!consultas.paciente) {
+                        consultas.paciente = entrada_usuario;
+                        console.log("Nome do médico:");
+                    } else if (!consultas.médico) {
+                        consultas.medico = entrada_usuario;
+                        console.log("Data:");
+                    } else if (!consultas.data) {
+                        consultas.data = entrada_usuario;
+                        console.log("Horário:");
+                    } else if (!consultas.horario) {
+                        consultas.horario = entrada_usuario;
+                        consultas.push(cadastroConsultas);
+                        console.log("Consulta cadastrada com sucesso!");
+                        paciente = {};
                         opcao = 0;
-                        cadastrandoLivro = false;
+                        cadastrandoConsulta = false;
                         console.log("\nEscolha uma das opções abaixo:");
-                        console.log("1: Digitar as informações do livro:");
-                        console.log("2: Caso queira remover um livro");
-                        console.log("3: Para ver os livros que inseriu");
-                        console.log("4: Sair do programa");
+                        console.log("1: Digitar as informações da consulta:");
+                        console.log("2: Caso queira remover uma consulta");
+                        console.log("3: Atualizar consulta");
+                        console.log("4: Para ver as consultas que inseriu");
+                        console.log("5: Sair do programa");
+
                     }
                 }
                 break;
@@ -111,20 +121,24 @@ process.stdin.on("data", function (data) {
                     opcao = 0;
                     removendoLivro = false;
                     console.log("\nEscolha uma das opções abaixo:");
-                    console.log("1: Digitar as informações do livro:");
-                    console.log("2: Caso queira remover um livro");
-                    console.log("3: Para ver os livros que inseriu");
-                    console.log("4: Sair do programa");
+                    console.log("1: Digitar as informações da consulta:");
+                    console.log("2: Caso queira remover uma consulta");
+                    console.log("3: Atualizar consulta");
+                    console.log("4: Para ver as consultas que inseriu");
+                    console.log("5: Sair do programa");
+
                 }
                 break;
 
             default:
                 console.log("Opção inválida. Tente novamente.");
                 console.log("\nEscolha uma das opções abaixo:");
-                console.log("1: Digitar as informações do livro:");
-                console.log("2: Caso queira remover um livro");
-                console.log("3: Para ver os livros que inseriu");
-                console.log("4: Sair do programa");
+                console.log("1: Digitar as informações da consulta:");
+                console.log("2: Caso queira remover uma consulta");
+                console.log("3: Atualizar consulta");
+                console.log("4: Para ver as consultas que inseriu");
+                console.log("5: Sair do programa");
+
                 break;
         }
     }
