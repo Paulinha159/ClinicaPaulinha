@@ -11,18 +11,18 @@ let novaConsulta = {
     Paciente: "",
     Médico: "",
     Data: "",
-    Hora:"",
-    
+    Hora: "",
+
 
 };
 let opcao = 0;
-let cadastrandoLivro = false;
-let removendoLivro = false;
+let cadastrandoConsulta = false;
+let removendoConsulta = false;
 
 console.log("Bem-vindos, escolha uma das opções abaixo:");
-console.log("1: Digitar as informações do livro:");
-console.log("2: Caso queira remover um livro");
-console.log("3: Para ver os livros que inseriu");
+console.log("1: Digitar as informações da consulta:");
+console.log("2: Caso queira remover uma consulta");
+console.log("3: Para ver as consultas que inseriu");
 console.log("4: Sair do programa");
 
 process.stdin.on("data", function (data) {
