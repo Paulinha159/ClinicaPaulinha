@@ -84,7 +84,7 @@ process.stdin.on("data", function (data) {
                     if (!consultas.paciente) {
                         consultas.paciente = entrada_usuario;
                         console.log("Nome do médico:");
-                    } else if (!consultas.médico) {
+                    } else if (!consultas.medico) {
                         consultas.medico = entrada_usuario;
                         console.log("Data:");
                     } else if (!consultas.data) {
@@ -92,7 +92,7 @@ process.stdin.on("data", function (data) {
                         console.log("Horário:");
                     } else if (!consultas.horario) {
                         consultas.horario = entrada_usuario;
-                        consultas.push(cadastroConsultas);
+                        consultas.push(cadastrandoConsulta);
                         console.log("Consulta cadastrada com sucesso!");
                         paciente = {};
                         opcao = 0;
