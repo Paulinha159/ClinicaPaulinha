@@ -22,8 +22,9 @@ let removendoConsulta = false;
 console.log("Bem-vindos, escolha uma das opções abaixo:");
 console.log("1: Digitar as informações da consulta:");
 console.log("2: Caso queira remover uma consulta");
-console.log("3: Para ver as consultas que inseriu");
-console.log("4: Sair do programa");
+console.log("3: Atualizar consulta");
+console.log("4: Para ver as consultas que inseriu");
+console.log("5: Sair do programa");
 
 process.stdin.on("data", function (data) {
     let entrada_usuario = data.toString().trim();
@@ -41,6 +42,9 @@ process.stdin.on("data", function (data) {
                 removendoLivro = true;
                 break;
             case 3:
+                console.log("Atualize a consulta");
+
+            case 4:
                 if (biblioteca.length === 0) {
                     console.log("Nenhum livro cadastrado.");
                 } else {
@@ -51,22 +55,26 @@ process.stdin.on("data", function (data) {
                 }
                 opcao = 0;
                 console.log("\nEscolha uma das opções abaixo:");
-                console.log("1: Digitar as informações do livro:");
-                console.log("2: Caso queira remover um livro");
-                console.log("3: Para ver os livros que inseriu");
-                console.log("4: Sair do programa");
+                console.log("1: Digitar as informações da consulta:");
+                console.log("2: Caso queira remover uma consulta");
+                console.log("3: Atualizar consulta");
+                console.log("4: Para ver as consultas que inseriu");
+                console.log("5: Sair do programa");
+
                 break;
-            case 4:
+            case 5:
                 console.log("Encerrando o programa...");
                 process.exit();
                 break;
             default:
                 console.log("Opção inválida. Tente novamente.");
                 console.log("\nEscolha uma das opções abaixo:");
-                console.log("1: Digitar as informações do livro:");
-                console.log("2: Caso queira remover um livro");
-                console.log("3: Para ver os livros que inseriu");
-                console.log("4: Sair do programa");
+                console.log("1: Digitar as informações da consulta:");
+                console.log("2: Caso queira remover uma consulta");
+                console.log("3: Atualizar consulta");
+                console.log("4: Para ver as consultas que inseriu");
+                console.log("5: Sair do programa");
+                
                 break;
         }
     } else {
@@ -90,10 +98,12 @@ process.stdin.on("data", function (data) {
                         opcao = 0;
                         cadastrandoLivro = false;
                         console.log("\nEscolha uma das opções abaixo:");
-                        console.log("1: Digitar as informações do livro:");
-                        console.log("2: Caso queira remover um livro");
-                        console.log("3: Para ver os livros que inseriu");
-                        console.log("4: Sair do programa");
+                        console.log("1: Digitar as informações da consulta:");
+                        console.log("2: Caso queira remover uma consulta");
+                        console.log("3: Atualizar consulta");
+                        console.log("4: Para ver as consultas que inseriu");
+                        console.log("5: Sair do programa");
+
                     }
                 }
                 break;
@@ -111,20 +121,24 @@ process.stdin.on("data", function (data) {
                     opcao = 0;
                     removendoLivro = false;
                     console.log("\nEscolha uma das opções abaixo:");
-                    console.log("1: Digitar as informações do livro:");
-                    console.log("2: Caso queira remover um livro");
-                    console.log("3: Para ver os livros que inseriu");
-                    console.log("4: Sair do programa");
+                    console.log("1: Digitar as informações da consulta:");
+                    console.log("2: Caso queira remover uma consulta");
+                    console.log("3: Atualizar consulta");
+                    console.log("4: Para ver as consultas que inseriu");
+                    console.log("5: Sair do programa");
+
                 }
                 break;
 
             default:
                 console.log("Opção inválida. Tente novamente.");
                 console.log("\nEscolha uma das opções abaixo:");
-                console.log("1: Digitar as informações do livro:");
-                console.log("2: Caso queira remover um livro");
-                console.log("3: Para ver os livros que inseriu");
-                console.log("4: Sair do programa");
+                console.log("1: Digitar as informações da consulta:");
+                console.log("2: Caso queira remover uma consulta");
+                console.log("3: Atualizar consulta");
+                console.log("4: Para ver as consultas que inseriu");
+                console.log("5: Sair do programa");
+
                 break;
         }
     }
