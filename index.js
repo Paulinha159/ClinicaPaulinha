@@ -15,6 +15,7 @@ let novaConsulta = {
 
 
 };
+let consulta = {}
 let opcao = 0;
 let cadastrandoConsulta = false;
 let removendoConsulta = false;
@@ -81,18 +82,18 @@ process.stdin.on("data", function (data) {
         switch (opcao) {
             case 1:
                 if (cadastrandoConsulta) {
-                    if (!consultas.paciente) {
-                        consultas.paciente = entrada_usuario;
+                    if (!consulta.paciente) {
+                        consulta.paciente = entrada_usuario;
                         console.log("Nome do médico:");
-                    } else if (!consultas.médico) {
-                        consultas.medico = entrada_usuario;
+                    } else if (!consulta.medico) {
+                        consulta.medico = entrada_usuario;
                         console.log("Data:");
-                    } else if (!consultas.data) {
-                        consultas.data = entrada_usuario;
+                    } else if (!consulta.data) {
+                        consulta.data = entrada_usuario;
                         console.log("Horário:");
-                    } else if (!consultas.horario) {
-                        consultas.horario = entrada_usuario;
-                        consultas.push(cadastroConsultas);
+                    } else if (!consulta.horario) {
+                        consulta.horario = entrada_usuario;
+                        consultas.push(consulta);
                         console.log("Consulta cadastrada com sucesso!");
                         paciente = {};
                         opcao = 0;
@@ -111,15 +112,15 @@ process.stdin.on("data", function (data) {
             case 2:
                 if (removendoLivro) {
                     const nome = entrada_usuario;
-                    const index = biblioteca.findIndex(livro => livro.nome.toLowerCase() === nome.toLowerCase());
+                    const index = consultas.findIndex(Paciente => livro.nome.toLowerCase() === nome.toLowerCase());
                     if (index !== -1) {
-                        biblioteca.splice(index, 1);
-                        console.log(`Livro '${nome}' removido com sucesso.`);
+                        consultas.splice(index, 1);
+                        console.log(`consulta'${nome}' cancelada  com sucesso.`);
                     } else {
-                        console.log(`Livro '${nome}' não encontrado.`);
+                        console.log(`consulta '${nome}' não encontrado.`);
                     }
                     opcao = 0;
-                    removendoLivro = false;
+                    removendoConsulta = false;
                     console.log("\nEscolha uma das opções abaixo:");
                     console.log("1: Digitar as informações da consulta:");
                     console.log("2: Caso queira remover uma consulta");
