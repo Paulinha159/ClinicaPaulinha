@@ -7,14 +7,8 @@ Atualizar uma consulta existente
 Cancelar uma consulta */
 
 const consultas = [];
-let novaConsulta = {
-    Paciente: "",
-    Médico: "",
-    Data: "",
-    Hora: "",
-
-
-};
+let consulta = {}
+let novaConsulta = {};
 let opcao = 0;
 let cadastrandoConsulta = false;
 let removendoConsulta = false;
@@ -46,11 +40,11 @@ process.stdin.on("data", function (data) {
 
             case 4:
                 if (consultas.length === 0) {
-                    console.log("Nenhum paciente cadastrado.");
+                    console.log("Nenhuma consulta cadastrada.");
                 } else {
-                    console.log("Pacientes cadastrados:");
-                    consultas.forEach((consultas, index) => {
-                        console.log(`${index + 1}. Nome: ${consultas.nome}, Autor: ${consultas.autor}, Tamanho: ${consultas.tamanho}, Gênero: ${consultas.genero}`);
+                    console.log("consultas cadastradas:");
+                    consultas.forEach((consulta, index) => {
+                        console.log(`${index + 1}. paciente: ${consulta.paciente}, medico: ${consulta.medico}, data: ${consulta.data}, horario: ${consulta.horario}`);
                     });
                 }
                 opcao = 0;
@@ -81,17 +75,17 @@ process.stdin.on("data", function (data) {
         switch (opcao) {
             case 1:
                 if (cadastrandoConsulta) {
-                    if (!consultas.paciente) {
-                        consultas.paciente = entrada_usuario;
+                    if (!consulta.paciente) {
+                        consulta.paciente = entrada_usuario;
                         console.log("Nome do médico:");
-                    } else if (!consultas.medico) {
-                        consultas.medico = entrada_usuario;
+                    } else if (!consulta.medico) {
+                        consulta.medico = entrada_usuario;
                         console.log("Data:");
-                    } else if (!consultas.data) {
-                        consultas.data = entrada_usuario;
+                    } else if (!consulta.data) {
+                        consulta.data = entrada_usuario;
                         console.log("Horário:");
-                    } else if (!consultas.horario) {
-                        consultas.horario = entrada_usuario;
+                    } else if (!consulta.horario) {
+                        consulta.horario = entrada_usuario;
                         consultas.push(cadastrandoConsulta);
                         console.log("Consulta cadastrada com sucesso!");
                         paciente = {};
@@ -109,14 +103,14 @@ process.stdin.on("data", function (data) {
                 break;
 
             case 2:
-                if (removendoLivro) {
-                    const nome = entrada_usuario;
-                    const index = biblioteca.findIndex(livro => livro.nome.toLowerCase() === nome.toLowerCase());
+                if (removendoConsulta) {
+                    const paciente = entrada_usuario;
+                    const index = consultas.findIndex(consulta => consulta.paciente.toLowerCase() === paciente.toLowerCase());
                     if (index !== -1) {
-                        biblioteca.splice(index, 1);
-                        console.log(`Livro '${nome}' removido com sucesso.`);
+                        consultas.splice(index, 1);
+                        console.log(`consulta'${nome}' removida com sucesso.`);
                     } else {
-                        console.log(`Livro '${nome}' não encontrado.`);
+                        console.log(`consulta '${nome}' não encontrada.`);
                     }
                     opcao = 0;
                     removendoLivro = false;
